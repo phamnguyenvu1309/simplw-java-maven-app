@@ -1,4 +1,6 @@
 name: deploy
+on: push
+
 true: 
   workflow_dispatch: 
     inputs: 
