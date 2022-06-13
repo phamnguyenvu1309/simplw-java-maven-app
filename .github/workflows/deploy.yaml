@@ -31,9 +31,7 @@ jobs:
           password: ${{ secrets.SERVER_SSH_KEY }}
           port: 22
           script: |
-            /etc/init.d/my-app stop
             mkdir ~/source/deploy
-            mv ~/source/my-app-1.0-SNAPSHOT.jar ~/deploy/my-app.jar
-            rm -rf /etc/init.d/my-app
-            ln -s -f ~/deploy/my-app.jar /etc/init.d/my-app
-            /etc/init.d/my-app start
+            mv ~/source/target/my-app-1.0-SNAPSHOT.jar ~/source/deploy/my-app.jar
+            java -jar ~/source/deploy/my-app.jar
+            
